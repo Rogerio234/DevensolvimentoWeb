@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  sqlite:
+    build: .
+    container_name: sqlite_container
+    volumes:
+      - ./data:/data
+    stdin_open: true
+    tty: true
