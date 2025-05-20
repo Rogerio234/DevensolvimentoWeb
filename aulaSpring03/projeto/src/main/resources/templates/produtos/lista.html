@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <main class="main-content">
+        <h1>Lista de Produtos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Detalhes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="produto: ${lista}">
+                    <td th:text="${produto.id}"></td>
+                    <td th:text="${produto.nome}"></td>
+                    <td th:text="${produto.quantidade}"></td>
+                    <td th:text="${produto.valor}"></td>
+                    <td>
+                        <a th:href="@{/produtos/{id}(id=${produto.id})}" class="botao">Detalhes</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+
+    <footer>
+        <p>2025 Meu App</p>
+    </footer>
+</body>
+
+</html>
