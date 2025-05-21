@@ -1,0 +1,30 @@
+# Definição de base_url (mesmo ambiente “local” do seu REST Client)
+@base_url = https://fluffy-space-couscous-q7q597gw67grfwxr-8080.app.github.dev
+
+### Inserir novo veiculo
+POST {{ base_url }}/api/veiculos
+Content-Type: application/json
+
+{
+  "modelo": "Fusca",
+  "ano": 1975,
+  "cor": "azul"
+},
+{
+  "modelo": "Civic",
+  "ano": 2020,
+  "cor": "preto"
+},
+{
+  "modelo": "Ferrari",
+  "ano": 2001,
+  "cor": "vermelha"
+}
+### Listar todos os veiculos
+GET {{ base_url }}/api/veiculos
+Accept: application/json
+### Buscar veiculo por ID
+GET {{ base_url }}/api/veiculos/1
+Accept: application/json
+### Remover veiculo (DELETE)
+DELETE {{ base_url }}/api/veiculos/1

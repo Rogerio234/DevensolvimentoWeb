@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Veiculo</title>
+    <!-- link para seu CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <main class="main-content">
+        <h1>Detalhes do Veiculo</h1>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th>Valor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${veiculo.id}"></td>
+                    <td th:text="${veiculo.modelo}"></td>
+                    <td th:text="${veiculo.ano}"></td>
+                    <td th:text="${veiculo.valor}"></td>
+                    <td>
+                        <form th:action="@{/veiculos/{id}/excluir(id=${veiculo.id})}" method="post">
+                            <button type="submit" class="botao">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <!-- footer opcional -->
+    <footer>
+        <p>© 2025 Meu App</p>
+    </footer>
+</body>
+
+</html>

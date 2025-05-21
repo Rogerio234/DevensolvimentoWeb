@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Veiculos</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <!-- conteúdo principal -->
+    <main class="main-content">
+        <h1>Lista de Veiculos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th>Valor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="veiculo : ${lista}">
+                    <td th:text="${veiculo.id}"></td>
+                    <td th:text="${veiculo.modelo}"></td>
+                    <td th:text="${veiculo.ano}"></td>
+                    <td th:text="${veiculo.valor}"></td>
+                    <td>
+                        <a th:href="@{/veiculos/{id}(id=${veiculo.id})}" class="botao">Detalhes</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <!-- footer opcional -->
+    <footer>
+        <p>© 2025 Meu App</p>
+    </footer>
+</body>
+
+</html>
